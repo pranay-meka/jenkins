@@ -27,7 +27,7 @@ pipeline {
                 sh 'mvn clean package'
             }
         }
-
+        }
         stage('Deploy') {
             when {
                 branch 'main' 

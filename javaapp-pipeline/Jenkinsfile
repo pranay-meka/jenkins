@@ -2,13 +2,7 @@ pipeline {
     agent any 
        stages {
            
-        stage('Checkout') {
-        steps {
-         git changelog: false, poll: false, url: 'https://github.com/pranay-meka/jenkins.git'
-    
-            }
-        }
-
+        
        stage('Unit Tests') {
             when {
                 branch 'dev' 

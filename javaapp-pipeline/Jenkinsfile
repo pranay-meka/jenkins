@@ -2,22 +2,15 @@ pipeline {
     agent any 
        stages {
         stage('Checkout') {
+            when {
+                branch 'main' 
+            }
         steps {
          git changelog: false, poll: false, url: 'https://github.com/pranay-meka/jenkins.git'
     
             }
         }
 
-       stage('Unit Tests') {
-            when {
-                branch 'dev' 
-            }
-            steps {
-                dir('javaapp-pipeline') {
-                sh 'mvn clean test'
-            }
-            }
-        }
         stage('Build') {
             when {
                 branch 'main' 
@@ -48,4 +41,4 @@ pipeline {
         }
     }
 }
-}
+
